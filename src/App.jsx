@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Fragment } from "react";
+import { Route, Routes } from "react-router-dom";
+import "swiper/css";
+import Main from "./components/layout/Main";
+import HomePage from "./pages/HomePage";
+import MoviePage from "./pages/MoviePage";
+import TvSeriesPage from "./pages/TvSeriesPage";
+import AnimePage from "./pages/AnimePage";
+import MoviesDetailsPage from "./pages/MoviesDetailsPage";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Fragment>
+      <Routes>
+        <Route element={<Main></Main>}>
+          <Route path="/" element={<HomePage></HomePage>}></Route>
+          <Route path="/movies" element={<MoviePage></MoviePage>}></Route>
+          <Route
+            path="/movie/:movieId"
+            element={<MoviesDetailsPage></MoviesDetailsPage>}
+          ></Route>
+          <Route
+            path="tvseries"
+            element={<TvSeriesPage></TvSeriesPage>}
+          ></Route>
+          <Route path="anime" element={<AnimePage></AnimePage>}></Route>
+        </Route>
+      </Routes>
+    </Fragment>
+  );
 }
 
-export default App
+export default App;
