@@ -9,7 +9,7 @@ const HomePage = () => {
       <section className="pb-10 movies-layout page-container">
         <h2 className="mb-10 text-2xl font-bold text-white capitalize">
           Now playing
-          <div className="mt-1 border border-primary"></div>
+          <div className="w-full h-px mt-1 bg-primary"></div>
         </h2>
         <MovieList></MovieList>
       </section>
@@ -17,7 +17,7 @@ const HomePage = () => {
       <section className="pb-10 movies-layout page-container">
         <h2 className="mb-10 text-2xl font-bold text-white capitalize">
           Top rated movies
-          <div className="mt-1 border border-primary"></div>
+          <div className="w-full h-px mt-1 bg-primary"></div>
         </h2>
         <MovieList type="top_rated"></MovieList>
       </section>
@@ -25,7 +25,7 @@ const HomePage = () => {
       <section className="pb-10 movies-layout page-container">
         <h2 className="mb-10 text-2xl font-bold text-white capitalize">
           Trending
-          <div className="mt-1 border border-primary"></div>
+          <div className="w-full h-px mt-1 bg-primary"></div>
         </h2>
         <MovieList type="popular"></MovieList>
       </section>
@@ -33,7 +33,7 @@ const HomePage = () => {
       <section className="pb-10 movies-layout page-container">
         <h2 className="mb-10 text-2xl font-bold text-white capitalize">
           Upcoming
-          <div className="mt-1 border border-primary"></div>
+          <div className="w-full h-px mt-1 bg-primary"></div>
         </h2>
         <MovieList type="upcoming"></MovieList>
       </section>

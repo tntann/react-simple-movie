@@ -17,7 +17,7 @@ const MoviesDetailsPage = () => {
   // if (error) return <div>failed to load</div>;
   const { backdrop_path, title, genres, overview } = data;
   return (
-    <div className="py-10">
+    <div className="py-10 page-container">
       <div className="w-full h-[600px] relative">
         <div className="absolute inset-0 bg-black bg-opacity-50 overplay"></div>
         <div
@@ -69,9 +69,9 @@ const MovieCredits = () => {
   const { cast } = data;
   if (!cast || cast.length <= 0) return null;
   return (
-    <div className="py-10">
+    <div className="py-10 page-container">
       <h2 className="mb-10 text-3xl font-bold text-center">Casts</h2>
-      <div className="grid grid-cols-4 gap-5">
+      <div className="grid grid-cols-4 gap-10">
         {cast.slice(0, 4).map((item) => (
           <div className="cast-item" key={item.id}>
             <img
@@ -98,7 +98,7 @@ const MovieVideos = () => {
   if (!results || results.length <= 0) return null;
 
   return (
-    <div className="py-10">
+    <div className="py-10 page-container">
       {results?.slice(0, 1)?.map((item) => (
         <div key={item.id}>
           <h3 className="mb-10 text-2xl font-semibold text-center">
@@ -133,8 +133,11 @@ const MovieSimilar = () => {
   const { results } = data;
   if (!results || results.length <= 0) return null;
   return (
-    <div className="py-10">
-      <h2 className="mb-10 text-3xl font-semibold">Similar movies</h2>
+    <div className="py-10 page-container">
+      <h2 className="mb-10 text-3xl font-semibold">
+        Similar movies
+        <div className="mt-1 border border-primary"></div>
+      </h2>
       <div className="movie-list">
         <Swiper grabCursor={true} spaceBetween={40} slidesPerView={"auto"}>
           {results.length > 0 &&
