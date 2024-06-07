@@ -39,3 +39,20 @@
     @apply text-primary;
   }
 }
+
+.pagination li a {
+  border-radius: 7px;
+  padding: 0.4rem 1rem;
+  border: #2f4c7b 1px solid;
+  cursor: pointer;
+}
+
+.pagination li a:hover {
+  background-color: #1e293b;
+}
+
+.pagination li.previous a,
+li.next a,
+li.break a {
+  border-color: transparent;
+}
