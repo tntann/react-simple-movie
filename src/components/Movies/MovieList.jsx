@@ -1,26 +1,53 @@
 import React from "react";
 import MovieCard from "./MovieCard";
+import MovieCardSkeleton from "./MovieCardSkeleton";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import useSWR from "swr";
 import { fetcher, tmdbAPI } from "../../config";
-//https://api.themoviedb.org/3/movie/now_playing?&api_key=247c6a0e12abe3d34fcf5e59c2032141
+import PropTypes from "prop-types";
 
 const MovieList = ({ type = "now_playing" }) => {
-  const { data } = useSWR(tmdbAPI.getMovieList(type), fetcher);
+  const { data, error } = useSWR(tmdbAPI.getMovieList(type), fetcher);
+  const isLoading = !data && !error;
   const movies = data?.results || [];
 
   return (
     <div className="select-none movie-list">
-      <Swiper grabCursor={true} spaceBetween={40} slidesPerView={"auto"}>
-        {movies.length > 0 &&
-          movies.map((item) => (
-            <SwiperSlide key={item.id}>
-              <MovieCard data={item}></MovieCard>
+      {isLoading && (
+        <>
+          <Swiper grabCursor={true} spaceBetween={40} slidesPerView={"auto"}>
+            <SwiperSlide>
+              <MovieCardSkeleton></MovieCardSkeleton>
             </SwiperSlide>
-          ))}
-      </Swiper>
+            <SwiperSlide>
+              <MovieCardSkeleton></MovieCardSkeleton>
+            </SwiperSlide>
+            <SwiperSlide>
+              <MovieCardSkeleton></MovieCardSkeleton>
+            </SwiperSlide>
+            <SwiperSlide>
+              <MovieCardSkeleton></MovieCardSkeleton>
+            </SwiperSlide>
+          </Swiper>
+        </>
+      )}
+      {!isLoading && (
+        <Swiper grabCursor={true} spaceBetween={40} slidesPerView={"auto"}>
+          {movies.length > 0 &&
+            movies.map((item) => (
+              <SwiperSlide key={item.id}>
+                <MovieCard data={item}></MovieCard>
+              </SwiperSlide>
+            ))}
+        </Swiper>
+      )}
     </div>
   );
+};
+
+MovieList.propTypes = {
+  type: PropTypes.string.isRequired,
 };
 
 export default MovieList;
