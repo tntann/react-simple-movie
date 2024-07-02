@@ -71,8 +71,8 @@ const Footer = () => {
           </div>
         </div>
         {/* bottom */}
-        <div className="text-center text-[#ABB2BF] pb-8 mt-12">
-          © Copyright 2024. Made by tntan
+        <div className="text-center text-sm text-[#ABB2BF] pb-8 mt-12">
+          © Copyright 2024. Made by tantn
         </div>
       </div>
     </>
