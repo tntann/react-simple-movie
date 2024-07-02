@@ -11,7 +11,7 @@ const HomePage = () => {
           Now playing
           <div className="w-full h-px mt-1 bg-primary"></div>
         </h2>
-        <MovieList></MovieList>
+        <MovieList type="now_playing"></MovieList>
       </section>
 
       <section className="pb-10 movies-layout page-container">
